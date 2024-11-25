@@ -1,0 +1,280 @@
+body {
+    font-family: "Bokor", system-ui, sans-serif;
+    background-color: #f9f9f9;
+    color: #333;
+    transition: background-color 0.5s, color 0.5s;
+    line-height: 1.6;
+}
+
+body.light-mode {
+    background-color: #f9f9f9;
+    color: #333;
+}
+
+body.dark-mode {
+    background-color: #0d1117;
+    color: #e6edf3;
+}
+
+header {
+    background: linear-gradient(90deg, #0047ab, #ff0000);
+    color: #fff;
+    padding: 1.3rem 0;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+nav a {
+    color: #fff;
+    text-decoration: none;
+    margin: 0 1.2rem;
+    font-size: 1.2rem;
+    font-weight: bold;
+    position: relative;
+    transition: color 0.3s ease, transform 0.3s ease, padding 0.3s ease;
+}
+
+/* Efeito de hover para links de navegação */
+nav a:hover {
+    color: #7407cd;
+    transform: scale(1.1);
+    padding-bottom: 5px;
+    border-bottom: 2px solid #280552;
+}
+
+
+/* Alterando o botão de Modo Escuro/Claro */
+#theme-toggle {
+    background-color: transparent;
+    color: #fff;
+    border: 2px solid #fff;
+    padding: 8px 16px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+}
+
+#theme-toggle i {
+    margin-right: 8px;
+}
+
+#theme-toggle:hover {
+    background-color: #15045a;
+    color: #fff;
+    transform: scale(1.1);
+}
+
+/* Fundo */
+.banner {
+    background: url('https://th.bing.com/th/id/OIP.Y02OG37VAFMYdnZ1JZYKDgHaDt?w=350&h=175&c=7&r=0&o=5&dpr=1.3&pid=1.7') center/cover no-repeat;
+    height: 75vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.banner::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1;
+}
+
+.banner h1 {
+    font-family: "Splash", cursive;
+    color: #0f0f0f;
+    font-size: 9rem;
+    z-index: 2;
+    animation: textGlow 1.5s infinite alternate;
+    text-shadow: 0 0 10px #9b0e0e, 0 0 20px #ff6f61, 0 0 40px #ff6f61;
+}
+
+/* Alterando cores para o modo escuro e claro */
+.banner h1.light-mode {
+    color: #f9f9f9
+}
+
+.banner h1.dark-mode {
+    color: #000000;
+}
+
+.content {
+    max-width: 1420px;
+    font-size: 3rem;
+    margin: 3rem auto;
+    text-align: center;
+    padding: 2rem;
+    background: linear-gradient(120deg, #1f1f1f, #2a2a2a);
+    border-radius: 15px;
+    box-shadow: 0 10px 25px  rgb(0, 71, 171);
+    position: relative;
+    overflow: hidden;
+    animation: fadeIn 1s ease-out;
+    color: #a31d10;
+}
+
+.content.light-mode {
+    background: linear-gradient(120deg, #ffffff, #f0f0f0);
+    color: #333;
+}
+
+.content.dark-mode {
+    background: linear-gradient(120deg, #2d2d2d, #3b3b3b);
+    color: #e6edf3;
+}
+
+/* Cartões de Personagem */
+.character-card {
+    display: inline-block;
+    margin: 1.5rem;
+    padding: 1rem;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px  red;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    width: 250px; /* Largura fixa */
+    height: 350px; /* Altura fixa */
+    text-align: center;
+    overflow: hidden;
+}
+
+.character-card img {
+    width: 100%;
+    height: 60%; /* Ajusta para ocupar 60% da altura do cartão */
+    object-fit: cover; /* Garante que a imagem preencha o espaço sem distorcer */
+    border-radius: 10px;
+}
+
+.character-card p {
+    margin-top: 0.5rem;
+    font-size: 1.2rem;
+    color: #333;
+    height: 20%; /* Espaço dedicado ao texto */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+/* Modal */
+.modal {
+    display: none; /* Modal começa escondido */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8); /* Fundo semitransparente */
+    justify-content: center;
+    align-items: center;
+    z-index: 1000; /*Controla a ordem de empilhamento dos elementos na página*/
+}
+
+/* Estilo do conteúdo do modal */
+.modal-content {
+    position: relative; /* Importante para posicionar o botão "X" */
+    background: #fff; /* Fundo branco para o conteúdo */
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+    max-width: 500px; /* Largura máxima do modal */
+    width: 90%; /* Ajusta dinamicamente para telas menores */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    animation: fadeIn 0.3s ease;
+}
+
+/* Imagem dentro do modal */
+.modal-content img {
+    width: 100%; /* Ajusta a imagem para ocupar toda a largura disponível */
+    max-width: 300px; /* Largura máxima fixa */
+    height: 300px; /* Mantém a proporção da imagem */
+    border-radius: 8px;
+    margin-bottom: 20px; /* Espaçamento entre a imagem e o texto */
+    object-fit: cover; /* Garante que a imagem seja centralizada e não fique distorcida */
+}
+
+.modal-content h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.modal-content p {
+    font-size: 16px;
+    color: #555;
+    line-height: 1.6;
+    text-align: center;
+    padding: 0 40px; 
+}
+
+/* Botão de Fechar - X */
+.close {
+    position: absolute; /* Fixa o botão ao canto do modal */
+    top: 20px; /* Distância do topo */
+    right: 40px; /* Distância da direita */
+    font-size: 24px;
+    color: #333;
+    cursor: pointer;
+    z-index: 1010; /* Certifica-se de que está visível */
+}
+
+/* Hover para o "X" */
+.close:hover {
+    color: #f00; /* Altera a cor ao passar o mouse */
+}
+
+/* Animação de fade */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    nav {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    nav a {
+        margin: 0.5rem 0;
+    }
+
+    .banner {
+        height: 50vh;
+    }
+
+    .banner h1 {
+        font-size: 2.5rem;
+    }
+}

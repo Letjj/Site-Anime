@@ -1,0 +1,127 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+body.light-mode {
+    background-color: #fff;
+    color: #000;
+}
+
+body.dark-mode {
+    background-color: #121212;
+    color: #100f0f;
+}
+
+h2 {
+    text-align: center;
+    
+}
+/* Header */
+header {
+    background: linear-gradient(90deg, #060a6d, #02031d);
+    color: #fff;
+    padding: 1.3rem 0;
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.3);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+header.light-mode {
+    background: linear-gradient(90deg, #3b137f, #2c0756); /* Inverter as cores no modo claro */
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+nav a {
+    color: #fff;
+    text-decoration: none;
+    margin: 0 1.2rem;
+    font-size: 1.2rem;
+    font-weight: bold;
+    position: relative;
+    transition: color 0.3s ease, transform 0.3s ease, padding 0.3s ease;
+}
+
+/* Efeito de hover para links de navegação */
+nav a:hover {
+    color: #7407cd;
+    transform: scale(1.1);
+    padding-bottom: 5px;
+    border-bottom: 2px solid #280552;
+}
+
+button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #333;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+/* Centralizar a página de contato */
+.content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: calc(100vh - 70px); /* Altura da tela menos o header */
+    padding: 20px;
+    margin-top: 70px;
+    box-sizing: border-box;
+}
+
+/* Estilização do formulário */
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #f4f4f4; /* Fundo claro para contraste */
+    padding: 20px;
+    border-radius: 15px; /* Cantos arredondados */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombras suaves */
+    max-width: 500px;
+    width: 100%; /* Ajustável para dispositivos menores */
+}
+
+/* Ajuste dos inputs */
+input, textarea {
+    margin-top: 10px;
+    padding: 10px;
+    font-size: 1em;
+    width: 100%;
+    border: 1px solid #ccc; /* Bordas sutis */
+    border-radius: 8px; /* Cantos arredondados nos campos */
+    box-sizing: border-box;
+}
+
+/* Botão estilizado */
+button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #333;
+    color: #fff;
+    border: none;
+    border-radius: 8px; /* Cantos arredondados no botão */
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #555; /* Mudança de cor ao passar o mouse */
+}

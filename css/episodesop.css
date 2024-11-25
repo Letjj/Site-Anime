@@ -1,0 +1,336 @@
+body {
+    font-family: "Bokor", system-ui, sans-serif;
+    background-color: #f9f9f9;
+    color: #333;
+    transition: background-color 0.5s, color 0.5s;
+    line-height: 1.6;
+}
+
+body.light-mode {
+    background-color: #f9f9f9;
+    color: #333;
+}
+
+body.dark-mode {
+    background-color: #0d1117;
+    color: #e6edf3;
+}
+
+header {
+    background: linear-gradient(90deg, #0047ab, #ff0000);
+    color: #fff;
+    padding: 1.3rem 0;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+nav a {
+    color: #fff;
+    text-decoration: none;
+    margin: 0 1.2rem;
+    font-size: 1.2rem;
+    font-weight: bold;
+    position: relative;
+    transition: color 0.3s ease, transform 0.3s ease, padding 0.3s ease;
+}
+
+/* Efeito de hover para links de navegação */
+nav a:hover {
+    color: #7407cd;
+    transform: scale(1.1);
+    padding-bottom: 5px;
+    border-bottom: 2px solid #280552;
+}
+
+
+/* Alterando o botão de Modo Escuro/Claro */
+#theme-toggle {
+    background-color: transparent;
+    color: #fff;
+    border: 2px solid #fff;
+    padding: 8px 16px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+}
+
+#theme-toggle i {
+    margin-right: 8px;
+}
+
+#theme-toggle:hover {
+    background-color: #15045a;
+    color: #fff;
+    transform: scale(1.1);
+}
+
+
+/* Banner */
+.banner {
+    background: url('https://i.pinimg.com/originals/4b/3d/bb/4b3dbbfdb9c853872e5e6080a26bca13.jpg') center/cover no-repeat;
+    height: 75vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.banner::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1;
+}
+
+.banner h1 {
+    font-family: "Splash", cursive;
+    color: #ffffff;
+    font-size: 4rem;
+    z-index: 2;
+    animation: textGlow 1.5s infinite alternate;
+    text-shadow: 0 0 10px #9b0e0e, 0 0 20px #ff6f61, 0 0 40px #ff6f61;
+}
+
+.banner h1.light-mode {
+    color: #140351;
+}
+
+.banner h1.dark-mode {
+    color: #ffffff;
+}
+
+/* Conteúdo principal */
+.content {
+    max-width: 1200px;
+    margin: 3rem auto;
+    padding: 2rem;
+    background: linear-gradient(120deg, #1f1f1f, #2a2a2a);
+    border-radius: 15px;
+    box-shadow: 0 10px 25px  rgb(0, 71, 171);
+    animation: fadeIn 1s ease-out;
+    color: #e6edf3;
+    text-align: center;
+}
+
+/* Container de Episódios */
+.episodes-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 2rem;
+    justify-items: center;
+    margin-top: 2rem;
+}
+
+/* Card de Episódio */
+.episode-card {
+    background-color: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px  red;
+    width: 100%;
+    max-width: 260px;
+    text-align: center;
+    transition: transform 0.3s ease;
+    min-height: 380px; /* Card mais alto */
+    padding: 20px; /* Espaço interno */
+    margin-bottom: 30px; /* Espaço extra entre os cards */
+}
+
+
+.episode-card img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    border-bottom: 2px solid #ddd;
+}
+
+.episode-card h3 {
+    font-size: 1.2rem;
+    margin: 1rem 0;
+    color: #333;
+}
+
+.episode-card p {
+    font-size: 1rem;
+    color: #666;
+    margin-bottom: 1rem;
+    padding: 0 1rem;
+}
+
+.episode-card button {
+    background-color: #7407cd;
+    color: white;
+    border: none;
+    padding: 0.8rem 1.5rem;
+    font-size: 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    height: 45px; /* Altura fixa para alinhar os botões */
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Centraliza o texto no botão */
+    width: 90%; /* Ajuste opcional para manter a proporção */
+    margin: 0 auto; /* Centraliza o botão dentro do card */
+}
+
+.episode-card button:hover {
+    background-color: #5b02a1;
+}
+
+/* Efeito ao passar o mouse sobre o card */
+.episode-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
+}
+
+.trailer-button {
+    background-color: #7407cd;
+    color: white;
+    border: none;
+    padding: 0.8rem 1.5rem;
+    font-size: 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5.2px; /* Espaçamento entre ícone e texto */
+}
+
+.trailer-button i {
+    font-size: 1.2rem; /* Tamanho do ícone */
+}
+
+.trailer-button:hover {
+    background-color: #5b02a1;
+}
+
+/* Modal */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal-content {
+    position: relative;
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+    max-width: 500px;
+    width: 90%;
+    box-shadow: 0 4px 10px red;
+    animation: fadeIn 0.3s ease;
+}
+
+.modal-content img {
+    width: 100%;
+    max-width: 300px;
+    height: 300px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    object-fit: cover;
+}
+
+.close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 24px;
+    color: #333;
+    cursor: pointer;
+}
+
+.close:hover {
+    color: #f00;
+}
+
+/* Animações */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Conteúdo no Modo Claro */
+body.light-mode .content {
+    background: linear-gradient(120deg, #ffffff, #e6edf3); /* Fundo claro */
+    color: #333; /* Texto escuro */
+}
+
+body.light-mode .content h1 {
+    color:  rgb(0, 71, 171); /* Título em destaque no modo claro */
+}
+
+body.light-mode .content p {
+    color: #121214; /* Texto de parágrafo no modo claro */
+}
+
+/* Conteúdo no Modo Escuro */
+body.dark-mode .content {
+    background: linear-gradient(120deg, #1f1f1f, #2a2a2a); /* Fundo escuro */
+    color: #e6edf3; /* Texto claro */
+}
+
+body.dark-mode .content h1 {
+    color:  rgb(0, 71, 171); /* Destaque no título no modo escuro */
+}
+
+body.dark-mode .content p {
+    color: #a5b1c2; /* Texto de parágrafo no modo escuro */
+}
+
+
+/* Responsividade */
+@media (max-width: 768px) {
+    nav {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    nav a {
+        margin: 0.5rem 0;
+    }
+
+    .banner {
+        height: 50vh;
+    }
+
+    .banner h1 {
+        font-size: 2.5rem;
+    }
+}
